@@ -1,6 +1,9 @@
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import { useEffect, useRef, useState } from 'react';
+import { basePath } from '../../next.config';
+
+const BASE_PATH = basePath ? basePath : '';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -28,7 +31,7 @@ function TouchMarker({ touch }: TouchMarkerProps) {
   return (
     <div className='absolute' style={{ top: touch.y, left: touch.x }}>
       <Image
-        src='/touch-marker.svg'
+        src={`${BASE_PATH}/touch-marker.svg`}
         alt=''
         className='relative'
         style={{ top: -imageSize / 2, left: -imageSize / 2 }}
